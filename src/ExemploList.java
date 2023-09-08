@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class ExemploList {
     public static void main(String[] args) {
@@ -19,5 +18,38 @@ public class ExemploList {
         System.out.println("Verificando se nota 10 existe na lista de notas:\n"+notas.contains(10));
         // Verificar se todos as notas foram inseridas e manipuladas na ordem
         System.out.println("notas:\n"+notas.toString());
+        // Buscar nota de acordo com sua posicao
+        System.out.println(notas.get(2));
+        // Exibir menor nota da lista
+        System.out.println("Menor nota: "+ Collections.min(notas));
+        // Exibir maior nota da lista
+        System.out.println("Maior nota da lista"+ Collections.max(notas));
+        // Exibir a soma de todas as notas da lista
+        Iterator<Integer> iterator = notas.iterator();
+        Integer total = 0;
+        while(iterator.hasNext()) {
+            Integer next = iterator.next();
+            total += next;
+        }
+        System.out.println("A soma total dos numeros: "+ total);
+        // Exibir a media das notas
+        System.out.println("Média: "+ total/notas.size());
+        // remover um numero
+        notas.remove(0);
+        System.out.println("Removido item do indice 0: "+notas);
+        // Remover todos elementos que sejam menores ou iguais a 7
+        Iterator<Integer> iterator1 = notas.iterator();
+        while(iterator1.hasNext()) {
+            Integer next = iterator1.next();
+            if(next <= 7) {
+                iterator1.remove();
+            }
+        }
+        System.out.println("Removido todas as notas menores ou iguais a 7: "+notas);
+        // Apagar toda a lista
+        notas.clear();
+        System.out.println("Lista limpa: "+notas);
+        // Verificando se lista está vazia
+        System.out.println("lista vazia? "+notas.isEmpty());
     }
 }
